@@ -1,0 +1,47 @@
+.footer-wrapper {
+    color: #AAAAAA;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-top: 15px;
+    width: 100%;
+}
+
+.footer-wrapper::before {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 80%;
+    left: 10%;
+    top: 0;
+    background-color: #AAAAAA;
+}
+
+.icon-section {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 15px 0;
+}
+
+.description-section {
+    text-align: center;
+    width: 95%;
+}
+
+.icon {
+    margin: 5px 0 0 0;
+}
+
+#github {
+    cursor: pointer;
+    width: 25px;
+    height: auto;
+    fill: #AAAAAA;
+    transition: fill .2s;
+}
+
+#github:hover {
+    fill: white;
+}
+

@@ -1,0 +1,60 @@
+.backgroundVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    pointer-events: none;
+    object-fit: cover;
+}
+
+.mainContainer {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+}
+
+.logoSection {
+    margin-left: 30px;
+}
+
+.themeSelector {
+    display: flex;
+    justify-content: center
+    width: 120px;
+    margin-right: 20px;
+}
+
+.selectorButton {
+    position: relative;
+    display: inline-block;
+    content: '';
+    border: 3px solid black;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+}
+
+.selectorButton:nth-of-type(1) {
+    left: 10px;
+    background-color: #1e1e1e;
+}
+
+.selectorButton:nth-of-type(2) {
+    background-color: #f0f0f0;
+}
+
+.selectorButton:nth-of-type(3) {
+    right: 10px;
+    background-color: #64B22E;
+}

@@ -1,9 +1,11 @@
+import Overview from "./pages/Overview.jsx";
+
 function App() {
-  return (
-    <>
-        <h1>This is a test setup</h1>
-    </>
-  )
+    return (
+        <>
+            <Overview />
+        </>
+    );
 }
 
-export default App
+export default App;
