@@ -1,48 +1,64 @@
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Titillium Web', sans-serif;
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Titillium Web", sans-serif;
 }
 
 :root {
   --background-color: #ffffff;
+  --background-light: #374343;
+    --background-medium: #252D2D;
   --text-color: #333333;
+  --light-text: #aaaaaa;
   --accent-color-1: #007acc;
   --accent-color-2: #ff4081;
 }
 
-/* Light Theme */
 .light-theme {
-  --background-color: #f5f5f5;
+  --background-color: #1E2F23;
+  --background-light: #34623F;
+    --background-medium: #60774;
   --text-color: #333333;
-  --accent-color-1: #007acc;
-  --accent-color-2: #ff4081;
+  --light-text: #888888;
+  --accent-color-1: #768948;
+  --accent-color-2: #B39C4D;
 }
 
-/* Dark Theme */
 .dark-theme {
-  --background-color: #121212;
+  --background-color: #4c5b5c;
+  --background-light: #374343;
+    --background-medium: #252D2D;
   --text-color: #e0e0e0;
-  --accent-color-1: #bb86fc;
-  --accent-color-2: #03dac6;
+  --light-text: #aaaaaa;
+  --accent-color-1: #db5461;
+  --accent-color-2: #e3655b;
 }
 
-/* Cool Blue Theme */
-.cool-blue-theme {
-  --background-color: #e0f7fa;
-  --text-color: #004d40;
-  --accent-color-1: #0288d1;
-  --accent-color-2: #b2ebf2;
+.race-theme {
+  --background-color: #000000;
+  --background-light: rgba(0,0,0,.5);
+    --background-medium: rgba(0,0,0,.4);
+  --text-color: #dddddd;
+  --light-text: #aaaaaa;
+  --accent-color-1: rgba(0,0,0,.3);
+  --accent-color-2: rgba(0,0,0,.2);
 }
 
 body {
   background-color: var(--background-color);
   color: var(--text-color);
-min-height: 100vh;
+  min-height: 100vh;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--text-color);
 }
 
