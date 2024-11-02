@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Footer from "../components/Footer.jsx";
 
+import logo from "../assets/Logo_Nürburgring_Circuit.svg";
+
 function Overview() {
     const [selectedTheme, setSelectedTheme] = useState("dark-theme");
 
@@ -16,15 +18,15 @@ function Overview() {
             <div className="mainContainer">
                 <div className="header">
                     <div className="logoSection">
-                        LOGO <br></br> HERE
+                        <img className="logo" src={logo} alt="nürburgring logo"/>
                     </div>
                     <div className="themeSelector">
                         <span
-                            onClick={() => setTheme("dark-theme")}
+                            onClick={() => setTheme("light-theme")}
                             className="selectorButton"
                         ></span>
                         <span
-                            onClick={() => setTheme("light-theme")}
+                            onClick={() => setTheme("dark-theme")}
                             className="selectorButton"
                         ></span>
                         <span
@@ -37,7 +39,7 @@ function Overview() {
                     {selectedTheme === "race-theme" && (
                         <iframe
                             class="backgroundVideo"
-                            src="https://www.youtube.com/embed/2ZjPFBwEx0I?autoplay=1&mute=1&loop=1&playlist=2ZjPFBwEx0I&controls=0&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1&vq=hd1080"
+                            src="https://www.youtube.com/embed/mn07l5d55Jw?si=LEmX5oL89-KQLArj&autoplay=1&mute=1&loop=1&playlist=mn07l5d55Jw&controls=0&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1&vq=hd1080"
                             title="Background video"
                             frameborder="0"
                             allow="autoplay; encrypted-media; fullscreen"
@@ -51,12 +53,6 @@ function Overview() {
                         </div>
                         
                         <div className="botMain">
-                            <div className="botQuestion">
-                                This is a question for the bot with some more lines of text This
-                                is a question for the bot with some more lines of text This is a
-                                question for the bot with some more lines of text hello hello
-                                ehello hello hello ehello hello hello ehello
-                            </div>
                             <div className="botQuestion">
                                 <div className="text">
                                     This is a question for the bot with some more lines of text

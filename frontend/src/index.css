@@ -8,33 +8,40 @@
 }
 
 :root {
-  --background-color: #ffffff;
-  --background-light: #374343;
-    --background-medium: #252D2D;
-  --text-color: #333333;
-  --light-text: #aaaaaa;
-  --accent-color-1: #007acc;
-  --accent-color-2: #ff4081;
+  --background-color: linear-gradient(347deg, rgba(42,42,40,1) 0%, rgba(31,31,30,1) 49%, rgba(21,21,20,1) 100%);
+  --background-light: #363636; 
+  --background-medium: #1f1f1f; 
+
+  --text-color: #e0e0e0; 
+  --light-text: #bbbbbb; 
+
+    --accent-color-1: #950e12;
+  --accent-color-2: #CE1218;
 }
 
+
 .light-theme {
-  --background-color: #1E2F23;
-  --background-light: #34623F;
-    --background-medium: #60774;
-  --text-color: #333333;
+  --background-color: #C6C8C6;
+  --background-light: #DBDFDB;
+    --background-medium: #B5BAB5;
+  --text-color: #000000;
   --light-text: #888888;
-  --accent-color-1: #768948;
-  --accent-color-2: #B39C4D;
+  --accent-color-1: #6FC633;
+  --accent-color-2: #8BD459;
 }
 
 .dark-theme {
-  --background-color: #4c5b5c;
-  --background-light: #374343;
-    --background-medium: #252D2D;
-  --text-color: #e0e0e0;
-  --light-text: #aaaaaa;
-  --accent-color-1: #db5461;
-  --accent-color-2: #e3655b;
+  --background-color: linear-gradient(347deg, rgba(42,42,40,1) 0%, rgba(31,31,30,1) 49%, rgba(21,21,20,1) 100%);
+  --background-light: #363636; 
+  --background-medium: #1f1f1f; 
+
+  --text-color: #e0e0e0; 
+  --light-text: #bbbbbb; 
+
+  /* --accent-color-1: linear-gradient(90deg, rgba(149,14,18,1) 0%, rgba(75,7,9,1) 50%); */
+  /* --accent-color-2: linear-gradient(-90deg, rgba(206,18,24,1) 0%, rgba(150,13,18,1) 50%); */
+    --accent-color-1: #950e12;
+  --accent-color-2: #CE1218;
 }
 
 .race-theme {
@@ -48,7 +55,7 @@
 }
 
 body {
-  background-color: var(--background-color);
+  background: var(--background-color);
   color: var(--text-color);
   min-height: 100vh;
 }
