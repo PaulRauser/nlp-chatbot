@@ -1,16 +1,28 @@
 import { useState } from "react";
 import Footer from "../components/Footer.jsx";
+import axios from "axios";
 
 import logo from "../assets/Logo_Nürburgring_Circuit.svg";
 
 function Overview() {
     const [selectedTheme, setSelectedTheme] = useState("dark-theme");
+    const [input, setInput] = useState("");
 
     const setTheme = (theme) => {
         document.body.classList.remove("dark-theme", "light-theme", "race-theme");
         document.body.classList.add(theme);
         setSelectedTheme(theme);
     };
+
+    const handleInput = (event) => {
+        console.log(event.target.value);
+        setInput(event.target.value);
+    }
+
+
+    const handleSendMessage = () => {
+
+    }
 
 
     return (
