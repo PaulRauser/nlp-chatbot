@@ -7,6 +7,7 @@ import logo from "../assets/Logo_Nürburgring_Circuit.svg";
 function Overview() {
     const [selectedTheme, setSelectedTheme] = useState("dark-theme");
     const [input, setInput] = useState("");
+    const [messages, setMessages] = useState([]);
 
     const setTheme = (theme) => {
         document.body.classList.remove("dark-theme", "light-theme", "race-theme");
@@ -15,22 +16,46 @@ function Overview() {
     };
 
     const handleInput = (event) => {
-        console.log(event.target.value);
         setInput(event.target.value);
-    }
+    };
 
+    const handleSendMessage = async () => {
+        if (!input) {
+            console.warn("No input provided");
+            return;
+        }
 
-    const handleSendMessage = () => {
+        try {
+            const response = await axios.post("http://localhost:5001/test", {
+                message: input,
+            });
 
-    }
+            const responseMessage = response.data.text;
 
+            setMessages([...messages, { sender: "testUser", text: input }]);
+            setMessages((prevMessages) => [
+                ...prevMessages,
+                { sender: "bot", text: responseMessage.message },
+            ]);
+        } catch (error) {
+            console.error("Error:", error);
+        } finally {
+            setInput("");
+        }
+    };
+
+    const handleKeyPress = (event) => {
+        if (event.key === "Enter") {
+            handleSendMessage();
+        }
+    };
 
     return (
         <>
             <div className="mainContainer">
                 <div className="header">
                     <div className="logoSection">
-                        <img className="logo" src={logo} alt="nürburgring logo"/>
+                        <img className="logo" src={logo} alt="nürburgring logo" />
                     </div>
                     <div className="themeSelector">
                         <span
@@ -60,88 +85,28 @@ function Overview() {
                     )}
                     <div className="botContainer">
                         <div className="botHeader">
-                            <div className="certaintyHeader">Certainty Score</div> 
-                            <div className="certaintyMeter"></div> 
+                            <div className="certaintyHeader">Certainty Score</div>
+                            <div className="certaintyMeter"></div>
                         </div>
-                        
+
                         <div className="botMain">
-                            <div className="botQuestion">
-                                <div className="text">
-                                    This is a question for the bot with some more lines of text
-                                    hello hello ehello
+                            {messages.map((message, index) => (
+                                <div className={message.sender === "bot" ? "botReply" : "botQuestion"}  key={index}>
+                                    <div className="text">{message.text}</div>
                                 </div>
-                            </div>
-                            <div className="botQuestion">
-                                <div className="text">
-                                    This is a question for the bot with some more lines of text
-                                    hello hello ehello
-                                </div>
-                            </div>
-                            <div className="botQuestion">
-                                <div className="text">
-                                    This is a question for the bot with some more lines of text
-                                    hello hello ehello
-                                </div>
-                            </div>
-                            <div className="botQuestion">
-                                <div className="text">
-                                    This is a question for the bot with some more lines of text
-                                    hello hello ehello
-                                </div>
-                            </div>
-                            <div className="botQuestion">
-                                <div className="text">
-                                    This is a question for the bot with some more lines of text
-                                    hello hello ehello
-                                </div>
-                            </div>
-                            <div className="botReply">
-                                <div className="text">This is an answer from the bot</div>
-                            </div>
-                            <div className="botQuestion">
-                                <div className="text">
-                                    This is a question for the bot with some more lines of text
-                                    hello hello ehello
-                                </div>
-                            </div>
-                            <div className="botReply">
-                                <div className="text">This is an answer from the bot</div>
-                            </div>
-                            <div className="botQuestion">
-                                <div className="text">
-                                    This is a question for the bot with some more lines of text
-                                    hello hello ehello
-                                </div>
-                            </div>
-                            <div className="botReply">
-                                <div className="text">This is an answer from the bot</div>
-                            </div>
-                            <div className="botQuestion">
-                                <div className="text">
-                                    This is a question for the bot with some more lines of text
-                                    hello hello ehello
-                                </div>
-                            </div>
-                            <div className="botReply">
-                                <div className="text">This is an answer from the bot</div>
-                            </div>
-                            <div className="botQuestion">
-                                <div className="text">
-                                    This is a question for the bot with some more lines of text
-                                    hello hello ehello
-                                </div>
-                            </div>
-                            <div className="botReply">
-                                <div className="text">This is an answer from the bot</div>
-                            </div>
+                            ))}
                         </div>
                         <div className="inputContainer">
                             <input
+                                onChange={handleInput}
+                                onKeyDown={handleKeyPress}
                                 className="botInput"
                                 type="text"
+                                value={input}
                                 placeholder="Type your question..."
                             ></input>
                             <svg
+                                onClick={handleSendMessage}
                                 id="sendIcon"
                                 viewBox="0 0 24 24"
                                 fill="none"

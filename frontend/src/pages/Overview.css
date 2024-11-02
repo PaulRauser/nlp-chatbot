@@ -127,6 +127,7 @@
 
 .botMain {
     max-height: 500px;
+    flex-grow: 1;
     overflow-y: scroll;
     width: 95%;
     padding: 5px;
