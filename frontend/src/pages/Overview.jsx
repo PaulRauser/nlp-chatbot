@@ -27,15 +27,18 @@ function Overview() {
 
         try {
             const response = await axios.post("http://localhost:5001/test", {
-                message: input,
+                text: input,
             });
 
-            const responseMessage = response.data.text;
+            const responseText = response.data.text;
 
-            setMessages([...messages, { sender: "testUser", text: input }]);
             setMessages((prevMessages) => [
+                { sender: "testUser", text: input },
                 ...prevMessages,
-                { sender: "bot", text: responseMessage.message },
+            ]);
+            setMessages((prevMessages) => [
+                { sender: "bot", text: responseText },
+                ...prevMessages,
             ]);
         } catch (error) {
             console.error("Error:", error);
@@ -91,7 +94,12 @@ function Overview() {
 
                         <div className="botMain">
                             {messages.map((message, index) => (
-                                <div className={message.sender === "bot" ? "botReply" : "botQuestion"}  key={index}>
+                                <div
+                                    className={
+                                        message.sender === "bot" ? "botReply" : "botQuestion"
+                                    }
+                                    key={index}
+                                >
                                     <div className="text">{message.text}</div>
                                 </div>
                             ))}
