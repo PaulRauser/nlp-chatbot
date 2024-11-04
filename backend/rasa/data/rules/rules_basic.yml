@@ -1,0 +1,68 @@
+version: "3.1"
+
+rules:
+
+- rule: low confidence fallback
+  steps:
+  - intent: nlu_fallback
+  - action: utter_fallback
+
+- rule: respond to a thankful user
+  steps:
+  - intent: thank_you
+  - action: utter_youre_welcome
+  
+- rule: greet user
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: say goodbye to the user
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: respond to affirm
+  steps:
+  - intent: affirm
+  - action: utter_affirm
+
+- rule: respond to deny
+  steps:
+  - intent: deny
+  - action: utter_denied
+
+- rule: bot challenge
+  steps:
+  - intent: bot_challenge
+  - action: utter_challenge
+
+- rule: ask capabilities
+  steps:
+  - intent: ask_capabilities
+  - action: utter_ask_capabilities
+
+- rule: ask creator
+  steps:
+  - intent: ask_creator
+  - action: utter_ask_creator
+
+- rule: ask technology
+  steps:
+  - intent: ask_technology
+  - action: utter_ask_technology
+
+- rule: ask recommendations
+  steps:
+  - intent: ask_recommendations
+  - action: utter_ask_recommendations
+
+- rule: report a bug
+  steps:
+  - intent: report_bug
+  - action: utter_report_bug
+
+- rule: provide feedback
+  steps:
+  - intent: feedback
+  - action: utter_feedback

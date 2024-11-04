@@ -8,12 +8,24 @@ app = Flask(__name__)
 CORS(app, origins=["http://localhost:5173"])
 
 RASA_SERVER_URL = "http://localhost:5005/webhooks/rest/webhook"
+RASA_MODEL_URL = "http://localhost:5005/model/parse"
 
 @app.route('/test', methods=['POST'])
 def handle_data():
+
     request_data = request.get_json().get("text")
     if not request_data:
         return jsonify({"Error:": "No message provided"}), 400
+
+    parse_response = requests.post(
+        RASA_MODEL_URL,
+        json={"text": request_data}
+    )
+
+    confidence = None
+    if parse_response.status_code == 200:
+        parse_data = parse_response.json()
+        confidence = parse_data.get("intent", {}).get("confidence")
 
     rasa_response = requests.post(
         RASA_SERVER_URL,
@@ -23,14 +35,8 @@ def handle_data():
     if rasa_response.status_code == 200:
         rasa_data = rasa_response.json()
 
-        # Extracting intent is easily possible using two calls to rasa
-        # One to webhooks/rest/webhook, one to model/parse
-        # intent = rasa_response.json().get("intent", {})
-        # confidence_score = intent.get("confidence", None) 
-        # print(confidence_score)
-
-        print(rasa_data)
-        response = {"content": rasa_data}
+        response = {"confidence": confidence, "content": rasa_data}
+        print(response)
 
         return jsonify(response)
     else:

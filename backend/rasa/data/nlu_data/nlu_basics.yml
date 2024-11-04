@@ -1,0 +1,114 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: ask_capabilities
+  examples: |
+    - What can you do?
+    - What are your capabilities?
+    - Tell me what you're capable of.
+    - What kind of tasks can you help me with?
+    - Can you explain your functions?
+    - How can you assist me?
+    - What services do you provide?
+
+- intent: ask_creator
+  examples: |
+    - Who created you?
+    - Who made you?
+    - Who is your creator?
+    - Who developed you?
+    - Can you tell me about your makers?
+    - Who programmed you?
+
+- intent: ask_technology
+  examples: |
+    - What technology are you built on?
+    - What platform do you use?
+    - What programming language are you made with?
+    - Can you tell me about your tech stack?
+    - How do you work?
+    - What kind of AI are you?
+    - What are you?
+
+- intent: ask_recommendations
+  examples: |
+    - Can you recommend something?
+    - What do you suggest?
+    - Do you have any recommendations?
+    - What would you advise me to do?
+    - Can you help me choose?
+    - What’s the best option?
+
+- intent: report_bug
+  examples: |
+    - I found a bug.
+    - There’s an issue with your system.
+    - I encountered a problem.
+    - Something is not working properly.
+    - I noticed a glitch.
+    - Can you fix an error I found?
+    - I want to report a bug
+
+- intent: feedback
+  examples: |
+    - I have some feedback.
+    - Can I give you some input?
+    - I want to share my thoughts.
+    - Here’s my opinion.
+    - I’d like to provide some feedback.
+    - Can you take my feedback?

@@ -1,1 +1,3 @@
 venv
+rasa/models
+rasa/.rasa

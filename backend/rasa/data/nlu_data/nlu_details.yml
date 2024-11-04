@@ -1,0 +1,104 @@
+version: "3.1"
+
+nlu:
+- lookup: team_name
+  examples: |
+    - Frikadelli Racing
+    - Herbert Motorsport
+    - Scherer Sport
+    - Lionspeed GP
+    - Red Bull Abt
+    - Falken 
+    - Walkenhorst
+    - Rowe Racing
+    - Manthey
+    - Bilstein Motorsport
+
+- lookup: driver_name
+  examples: |
+    - Vincent Kolb
+    - Ricardo Feller
+    - Frank Stippler
+    - Kelvin Van der Linde
+    - Marco Mapelli
+    - David Pittard
+    - Daniel Harper
+    - Augusto Farfus
+    - Maro Engel
+    - Kevin Estre
+
+- lookup: car_name
+  examples: |
+    - Ferrari 296 GT3
+    - Mercedes-AMG GT3
+    - Porsche 911 GT3 R
+    - Lamborghini Huracan GT3
+    - Audi R8 GT3 
+    - Aston Martin Vantage GT3
+    - BMW M4 GT3
+    - Toyota GR Supra GT4
+    - BMW M3 CSL
+    - Dacia Logan
+
+- intent: ask_participant_info
+  examples: |
+    - Tell me about the [teams](participant_type) in the race.
+    - Can you list all the [teams](participant_type) taking part this year?
+    - Who are the [teams](participant_type) competing in this year's race?
+    - Give me a rundown of the [teams](participant_type).
+    - Do you have information on the [teams](participant_type) involved?
+    - Who are the top [teams](participant_type) to watch?
+    - I’d like to know more about the [teams](participant_type) competing.
+    - What are some notable [teams](participant_type) in the lineup?
+    - Could you tell me more about each [team](participant_type) in the race?
+
+    - Can you tell me about the [cars](participant_type) in the race?
+    - What kind of [cars](participant_type) are competing this year?
+    - Give me some details about the [cars](participant_type) taking part.
+    - Tell me more about the [cars](participant_type) involved in the event.
+    - Do you have a list of the [cars](participant_type) competing?
+    - I’m interested in learning about the race [cars](participant_type).
+
+    - Who are the [drivers](participant_type) competing this year?
+    - Can you tell me about the top [drivers](participant_type) in the race?
+    - Do you know who the participating [drivers](participant_type) are?
+    - Tell me about some of the [drivers](participant_type) taking part.
+    - Give me details on the [drivers](participant_type) in the lineup.
+    - Could you provide info on the [drivers](participant_type) for this race?
+    - Who are the standout [drivers](participant_type) to watch?
+
+# For specific team information requests
+- intent: ask_team_detail
+  examples: |
+    - Tell me about [Frikadelli Racing](team_name).
+    - Do you have any information on [Manthey](team_name)?
+    - I’m interested in [Rowe Racing](team_name), could you tell me more?
+    - What’s special about [Falken](team_name)?
+    - Give me details on [Walkenhorst](team_name).
+    - I’d like to know about [Red Bull Abt](team_name).
+    - Any highlights on [Bilstein Motorsport](team_name)?
+
+# For specific car information requests
+- intent: ask_car_detail
+  examples: |
+    - What can you tell me about the [Ferrari 296 GT3](car_name)?
+    - I want details on the [Audi R8 GT3](car_name).
+    - Give me information on the [Porsche 911 GT3 R](car_name).
+    - How does the [BMW M4 GT3](car_name) perform?
+    - Tell me more about the [Aston Martin Vantage GT3](car_name).
+    - Do you have any details on the [Toyota GR Supra GT4](car_name)?
+    - What’s special about the [Mercedes-AMG GT3](car_name)?
+
+# For specific driver information requests
+- intent: ask_driver_detail
+  examples: |
+    - Can you tell me about [Kevin Estre](driver_name)?
+    - I’d like to know more about [Frank Stippler](driver_name).
+    - Do you have details on [Vincent Kolb](driver_name)?
+    - Tell me about [Ricardo Feller](driver_name).
+    - What’s the background of [Maro Engel](driver_name)?
+    - I want information on [Marco Mapelli](driver_name).
+    - Give me details on [Augusto Farfus](driver_name).
+    - Could you share info about [Kelvin Van der Linde](driver_name)?
+    - Tell me about [David Pittard](driver_name).
+    - Any information on [Daniel Harper](driver_name)?

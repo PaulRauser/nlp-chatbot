@@ -98,12 +98,12 @@
     align-items: center;
 }
 
-.certaintyHeader {
+.confidenceHeader {
     margin-top: 10px;
     text-align: center;
 }
 
-.certaintyMeter {
+.confidenceMeter {
     content: '';
     width: 80%;
     margin-top: 10px;
@@ -115,11 +115,11 @@
     position: relative;
 }
 
-.certaintyMeter::after {
+.confidenceMeter::after {
     content: '';
     position: absolute;
+    width: var(--confidence-width);
     border-radius: 21px;
-    width: 80%;
     height: 100%;
     background: var(--accent-color-1);
     transition: width .5s;
@@ -151,17 +151,56 @@
 box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
-.text, .image {
+.text {
     width: 100%;
     margin: 8px 0;
 }
 
+.botImage {
+    width: 60%;
+    border-radius: 8px;
+    margin: 5px 0;
+}
+
+.buttonContainer {
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    width: 60%;
+}
+
+.buttonOption {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    line-height: 17px;
+    margin: 6px 0;
+    border: 1px solid var(--text-color);
+    padding: 0 8px;
+    cursor: pointer;
+    transition: background .3s
+}
+
+.buttonOption:hover {
+    background: var(--accent-color-2)
+}
+
+.buttonOption:nth-of-type(1) {
+    border-radius: 8px 0 0 8px;
+    border-right: 0;
+}
+
+.buttonOption:nth-of-type(2) {
+    border-radius: 0 8px 8px 0;
+}
 
 
 .botQuestion {
   border-bottom-right-radius: 0;
     background: var(--accent-color-1);
-  place-self: end;
+    margin-left: auto;
 }
 
 .botReply {

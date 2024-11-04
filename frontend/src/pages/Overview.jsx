@@ -7,7 +7,10 @@ import logo from "../assets/Logo_Nürburgring_Circuit.svg";
 function Overview() {
     const [selectedTheme, setSelectedTheme] = useState("dark-theme");
     const [input, setInput] = useState("");
-    const [messages, setMessages] = useState([]);
+    const [messages, setMessages] = useState([
+        { sender: "bot", type: "text", messageData: "Hello, I'm Nürbot, I'm here to assist you with your questions about the Nürburgring 24h race."}
+    ]);
+    const [confidence, setConfidence] = useState(100);
 
     const setTheme = (theme) => {
         document.body.classList.remove("dark-theme", "light-theme", "race-theme");
@@ -19,27 +22,33 @@ function Overview() {
         setInput(event.target.value);
     };
 
-    const handleSendMessage = async () => {
-        if (!input) {
+    const handleButtonClick = (buttonValue) => {
+        handleSendMessage(buttonValue);
+    }
+
+    const handleSendMessage = async (textInput = input) => {
+        if (!textInput) {
             console.warn("No input provided");
             return;
         }
 
         try {
             const response = await axios.post("http://localhost:5001/test", {
-                text: input,
+                text: textInput,
             });
 
             // response.data = data of response - .data = content of data
-            const responseData = response.data.content;
+            const responseData = response.data;
+
+            //set confidence score
+            setConfidence(Math.round(responseData.confidence * 100));
 
             setMessages((prevMessages) => [
                 { sender: "testUser", type: "text", messageData: input },
                 ...prevMessages,
             ]);
 
-            console.log(responseData);
-            responseData.map((message) => {
+            responseData.content.map((message) => {
                 let type = "text";
                 let messageData;
 
@@ -52,7 +61,7 @@ function Overview() {
                 }
 
                 setMessages((prevMessages) => [
-                    { sender: "bot", type: type, messageData: messageData },
+                    { sender: "bot", type: "button", messageData: messageData },
                     ...prevMessages,
                 ]);
             });
@@ -104,25 +113,31 @@ function Overview() {
                     )}
                     <div className="botContainer">
                         <div className="botHeader">
-                            <div className="certaintyHeader">Certainty Score</div>
-                            <div className="certaintyMeter"></div>
+                            <div className="confidenceHeader">Confidence Score</div>
+                            <div
+                                className="confidenceMeter"
+                                style={{ "--confidence-width": `${confidence}%` }}
+                            ></div>
                         </div>
 
                         <div className="botMain">
                             {messages.map((message, index) => (
-                                <div
-                                    className={
-                                        message.sender === "bot" ? "botReply" : "botQuestion"
-                                    }
-                                    key={index}
-                                >
-                                    {message.type === "text" && (
+                                message.type === "text" ? (
+                                    <div className={message.sender === "bot" ? "botReply" : "botQuestion"} key={index}>
                                         <div className="text">{message.messageData}</div>
-                                    )}
-                                    {message.type === "image" && (
-                                        <img className="image" src={message.messageData} />
-                                    )}
-                                </div>
+                                    </div>
+                                ) : message.type === "image" ? (
+                                    <img className="botImage" src={message.messageData} />
+                                ) : message.type === "button" ? (
+                                    <div className="buttonContainer">
+                                        <div onClick={() => handleButtonClick("Hello")} className="buttonOption">
+                                            <div>Option 1</div>
+                                        </div>
+                                        <div onClick={() => handleButtonClick("Bye")} className="buttonOption">
+                                            <div>Option 2</div>
+                                        </div>
+                                    </div>
+                                ) : null
                             ))}
                         </div>
                         <div className="inputContainer">

@@ -1,10 +1,53 @@
 version: "3.1"
 
+actions:
+  - action_list_participants
+  - action_provide_team_detail
+  - action_provide_car_detail
+  - action_provide_driver_detail
+
+entities:
+  - participant_type
+  - team_name
+  - driver_name
+  - car_name
+
+slots:
+  participant_type:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: participant_type
+  
+  team_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: team_name
+  
+  driver_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: driver_name
+  
+  car_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: car_name 
+
 intents:
   # Basic intents
   - greet
   - goodbye
   - thank_you
+  - affirm
+  - deny
   - bot_challenge
   - ask_capabilities
   - ask_creator
@@ -18,14 +61,15 @@ intents:
   - ask_evolution
   - ask_track_evolution
   - ask_records
-  - ask_number_of_teams
-  - ask_number_of_drivers
   - ask_location
   - ask_schedule 
   - ask_weather 
   - ask_visitor_info 
   - ask_track_info 
   - ask_participant_info 
+  - ask_team_detail
+  - ask_car_detail
+  - ask_driver_detail
   - ask_trivia 
   - ask_ticket_info 
   - ask_accommodation_info 
@@ -33,21 +77,32 @@ intents:
 
 
 responses:
+  utter_fallback:
+    - text: "I'm sorry, I didn't understand. Please rephrase your question."
+
   utter_greet:
   - text: "Hello! How can I help you today?"
   - text: "Hi there! What would you like to know about the Nürburgring 24h race?"
   - text: "Hey! Need information on the race?"
+
+  utter_affirm:
+  - text: "I'm happy I could help you, is there anything else I can do for you?"
+  - text: "Glad I could help, how can I be of further assistance?"
   
   utter_goodbye:
   - text: "Goodbye! Feel free to ask anytime."
   - text: "See you! Let me know if you have more questions."
   - text: "Take care, and enjoy the race!"
   
-  utter_thank_you:
+  utter_youre_welcome:
   - text: "You're welcome! Happy to help."
   - text: "Anytime! Let me know if there's anything else."
   - text: "Glad to be of assistance!"
   
+  utter_denied:
+    - text: "I'm sorry for that, maybe I can help you in another way?"
+    - text: "I'm very sorry. Maybe there's some other way I can help you?"
+
   utter_challenge:
   - text: "I am a bot made to help you learn about the Nürbrugring 24h race"
   - text: "I am a bot and will gladly help you learn about the Nürbrugring 24h"
@@ -167,6 +222,10 @@ responses:
   - text: "Teams must meet strict eligibility requirements to compete."
   - text: "The 24h race has classes based on car type, plus technical inspections."
   - text: "I can explain regulations – are you interested in eligibility or car rules?"
+
+
+  utter_ask_participant_type:
+    - text: "Would you like to know about teams, cars, or drivers?"
 
 session_config:
   session_expiration_time: 60

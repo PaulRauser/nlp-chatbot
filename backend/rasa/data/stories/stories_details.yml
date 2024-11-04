@@ -1,0 +1,35 @@
+version: "3.1"
+
+stories:
+- story: ask about a team after listing participants
+  steps:
+  - intent: ask_participant_info
+  - action: action_list_participants
+  - intent: ask_team_detail
+    entities:
+      - team_name: "Rowe Racing"
+  - action: action_provide_team_detail
+  - slot_was_set:
+      - team_name: "Rowe Racing"
+
+- story: ask about a car after listing participants
+  steps:
+  - intent: ask_participant_info
+  - action: action_list_participants
+  - intent: ask_car_detail
+    entities:
+      - car_name: "Ferrari 296 GT3"
+  - action: action_provide_car_detail
+  - slot_was_set:
+      - car_name: "Ferrari 296 GT3"
+
+- story: ask about a driver after listing participants
+  steps:
+  - intent: ask_participant_info
+  - action: action_list_participants
+  - intent: ask_driver_detail
+    entities:
+      - driver_name: "Augusto Farfus"
+  - action: action_provide_driver_detail
+  - slot_was_set:
+      - driver_name: "Augusto Farfus"
