@@ -1,33 +1,172 @@
 version: "3.1"
 
 intents:
+  # Basic intents
   - greet
   - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
+  - thank_you
   - bot_challenge
+  - ask_capabilities
+  - ask_creator
+  - ask_technology
+  - ask_recommendations
+  - report_bug
+  - feedback
+  
+  # Content intents
+  - ask_highlights
+  - ask_evolution
+  - ask_track_evolution
+  - ask_records
+  - ask_number_of_teams
+  - ask_number_of_drivers
+  - ask_location
+  - ask_schedule 
+  - ask_weather 
+  - ask_visitor_info 
+  - ask_track_info 
+  - ask_participant_info 
+  - ask_trivia 
+  - ask_ticket_info 
+  - ask_accommodation_info 
+  - ask_regulation_info
+
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
-
+  - text: "Hello! How can I help you today?"
+  - text: "Hi there! What would you like to know about the Nürburgring 24h race?"
+  - text: "Hey! Need information on the race?"
+  
   utter_goodbye:
-  - text: "Bye"
+  - text: "Goodbye! Feel free to ask anytime."
+  - text: "See you! Let me know if you have more questions."
+  - text: "Take care, and enjoy the race!"
+  
+  utter_thank_you:
+  - text: "You're welcome! Happy to help."
+  - text: "Anytime! Let me know if there's anything else."
+  - text: "Glad to be of assistance!"
+  
+  utter_challenge:
+  - text: "I am a bot made to help you learn about the Nürbrugring 24h race"
+  - text: "I am a bot and will gladly help you learn about the Nürbrugring 24h"
+  - text: "You are talking to an actual person now"
+  
+  utter_ask_capabilities:
+  - text: "I can tell you all about the Nürburgring 24h race, from history to ticket info!"
+  - text: "I'm here to answer questions about the Nürburgring event, teams, drivers, and more."
+  - text: "Ask me anything about the Nürburgring 24h – I'm ready!"
+  
+  utter_ask_creator:
+  - text: "I was created to help you learn about the Nürburgring 24h race!"
+  - text: "I’m a digital assistant built for Nürburgring fans like you."
+  - text: "I'm here to answer questions about the race, thanks to my creators."
+  
+  utter_ask_technology:
+  - text: "I’m built with Rasa and backed by advanced NLP technology."
+  - text: "My brain runs on Rasa, powered by machine learning and NLP."
+  - text: "I use Rasa’s NLP technology to understand and answer your questions."
+  
+  utter_ask_recommendations:
+  - text: "For race fans, I recommend checking out the best viewing spots and race schedule."
+  - text: "Explore the Nordschleife sections – it's an iconic experience!"
+  - text: "Be sure to visit the fan zone; it’s a highlight of the event."
+  
+  utter_report_bug:
+  - text: "Thanks for letting me know! I’ll make sure it gets looked at."
+  - text: "I appreciate the feedback! We’ll work on fixing it."
+  - text: "Your feedback is helpful. Thank you!"
+  
+  utter_feedback:
+  - text: "I’d love to hear what you think! Your feedback helps me improve."
+  - text: "Feel free to share any thoughts on how I can help better."
+  - text: "Thank you for your feedback!"
+  
+  utter_ask_history:
+  - text: "The Nürburgring 24h has a rich history dating back to 1970. Want to know more?"
+  - text: "The 24h race started in 1970 and has been thrilling fans ever since!"
+  - text: "It’s a legendary race, started in 1970. Would you like some key highlights?"
+  
+  utter_ask_highlights:
+  - text: "Some memorable highlights include fierce night battles and record-breaking laps."
+  - text: "The Nürburgring is known for its thrilling overtakes and intense night racing."
+  - text: "Every race has its unforgettable moments. Do you want to hear a few recent ones?"
+  
+  utter_ask_evolution:
+  - text: "The race has evolved with modern safety features and team strategies."
+  - text: "From its early days, the Nürburgring race has added more classes and tech."
+  - text: "The track and race have evolved a lot since the 70s. Want to hear about it?"
+  
+  utter_ask_track_evolution:
+  - text: "The Nürburgring has seen updates for safety and speed over the years."
+  - text: "Originally built in the 1920s, the track has been modernized over time."
+  - text: "It’s a mix of history and innovation – would you like specific details?"
+  
+  utter_ask_records:
+  - text: "The fastest lap record is held by a Porsche 911 GT3. Want more records?"
+  - text: "The Nürburgring has some impressive records in speed and endurance."
+  - text: "Records here are often broken. Would you like the latest times?"
+  
+  utter_ask_number_of_teams:
+  - text: "The race hosts about 100-150 teams each year."
+  - text: "Each year, around 150 teams participate, from amateurs to pros."
+  - text: "A wide range of teams join – do you want info on specific teams?"
+  
+  utter_ask_number_of_drivers:
+  - text: "Each team has around 3-4 drivers, adding up to hundreds of participants."
+  - text: "The 24h race involves hundreds of drivers, both veterans and rookies."
+  - text: "There are usually around 3-4 drivers per team."
+  
+  utter_ask_location:
+  - text: "The Nürburgring is located in the Eifel mountains of Germany."
+  - text: "This famous track is in Nürburg, Germany."
+  - text: "It’s located in western Germany, near the village of Nürburg."
+  
+  utter_ask_schedule:
+  - text: "The race schedule spans an entire weekend, from practice to the main event."
+  - text: "It starts with practice sessions on Thursday, and the race is Saturday-Sunday."
+  - text: "I can share the full schedule – what days are you interested in?"
+  
+  utter_ask_weather:
+  - text: "Weather at Nürburgring is unpredictable! Rain and fog are common."
+  - text: "The forecast changes quickly here. Are you asking about race day?"
+  - text: "Weather can be a huge factor – especially when it rains at night."
+  
+  utter_ask_visitor_info:
+  - text: "There are plenty of activities for fans, from fan zones to car shows!"
+  - text: "The race is a festival for fans – here are some tips for first-time visitors."
+  - text: "Visitors enjoy fan areas, great views, and activities throughout the race."
+  
+  utter_ask_track_info:
+  - text: "The Nürburgring is a 25km track known for its challenging sections."
+  - text: "It has iconic parts like the Nordschleife and tight, technical turns."
+  - text: "This track is complex and thrilling – do you want details on a section?"
+  
+  utter_ask_participant_info:
+  - text: "Teams vary from major manufacturers to private teams. Do you have one in mind?"
+  - text: "I can tell you about the drivers, cars, and teams. Who are you curious about?"
+  - text: "Each team has unique strategies and car setups. Would you like details on a specific one?"
 
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  utter_ask_trivia:
+  - text: "Did you know the Nürburgring is nicknamed the ‘Green Hell’?"
+  - text: "Here’s a fun fact: The Nordschleife was built in 1927!"
+  - text: "The race is one of the toughest in motorsport. Want to hear some trivia?"
+
+  utter_ask_ticket_info:
+  - text: "Tickets range from day passes to weekend packages. Want details?"
+  - text: "You can purchase tickets online or at the venue. Need help with types?"
+  - text: "I can help with ticket info – are you looking for a specific pass?"
+
+  utter_ask_accommodation_info:
+  - text: "Camping is popular at the Nürburgring, but there are hotels nearby too."
+  - text: "There’s on-site parking, camping, and nearby hotels for fans."
+  - text: "Visitors can choose camping, parking, or hotels – I can help with any."
+
+  utter_ask_regulation_info:
+  - text: "Teams must meet strict eligibility requirements to compete."
+  - text: "The 24h race has classes based on car type, plus technical inspections."
+  - text: "I can explain regulations – are you interested in eligibility or car rules?"
 
 session_config:
   session_expiration_time: 60

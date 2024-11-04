@@ -21,9 +21,16 @@ def handle_data():
     )
 
     if rasa_response.status_code == 200:
-        rasa_message = next((item.get('text') for item in rasa_response.json() if 'text' in item), "Default text if not found")
-        print(rasa_message)
-        response = {"text": rasa_message}
+        rasa_data = rasa_response.json()
+
+        # Extracting intent is easily possible using two calls to rasa
+        # One to webhooks/rest/webhook, one to model/parse
+        # intent = rasa_response.json().get("intent", {})
+        # confidence_score = intent.get("confidence", None) 
+        # print(confidence_score)
+
+        print(rasa_data)
+        response = {"content": rasa_data}
 
         return jsonify(response)
     else:

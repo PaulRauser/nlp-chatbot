@@ -30,16 +30,32 @@ function Overview() {
                 text: input,
             });
 
-            const responseText = response.data.text;
+            // response.data = data of response - .data = content of data
+            const responseData = response.data.content;
 
             setMessages((prevMessages) => [
-                { sender: "testUser", text: input },
+                { sender: "testUser", type: "text", messageData: input },
                 ...prevMessages,
             ]);
-            setMessages((prevMessages) => [
-                { sender: "bot", text: responseText },
-                ...prevMessages,
-            ]);
+
+            console.log(responseData);
+            responseData.map((message) => {
+                let type = "text";
+                let messageData;
+
+                if (message.image) {
+                    type = "image";
+                    messageData = message.image;
+                } else if (message.text) {
+                    type = "text";
+                    messageData = message.text;
+                }
+
+                setMessages((prevMessages) => [
+                    { sender: "bot", type: type, messageData: messageData },
+                    ...prevMessages,
+                ]);
+            });
         } catch (error) {
             console.error("Error:", error);
         } finally {
@@ -100,7 +116,12 @@ function Overview() {
                                     }
                                     key={index}
                                 >
-                                    <div className="text">{message.text}</div>
+                                    {message.type === "text" && (
+                                        <div className="text">{message.messageData}</div>
+                                    )}
+                                    {message.type === "image" && (
+                                        <img className="image" src={message.messageData} />
+                                    )}
                                 </div>
                             ))}
                         </div>
