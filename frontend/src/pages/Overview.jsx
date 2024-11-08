@@ -2,13 +2,14 @@ import { useState } from "react";
 import Footer from "../components/Footer.jsx";
 import axios from "axios";
 
+
 import logo from "../assets/Logo_Nürburgring_Circuit.svg";
 
 function Overview() {
     const [selectedTheme, setSelectedTheme] = useState("dark-theme");
     const [input, setInput] = useState("");
     const [messages, setMessages] = useState([
-        { sender: "bot", type: "text", messageData: "Hello, I'm Nürbot, I'm here to assist you with your questions about the Nürburgring 24h race."}
+        { sender: "bot", type: "text", messageData: "Hello, I'm Nürbot, I'm here to assist you with your questions about the Nürburgring 24h race. How can I help you?"}
     ]);
     const [confidence, setConfidence] = useState(100);
 
@@ -26,7 +27,12 @@ function Overview() {
         handleSendMessage(buttonValue);
     }
 
-    const handleSendMessage = async (textInput = input) => {
+    const handleSendMessage = async (buttonValue) => {
+        let textInput = input;
+        if(buttonValue) {
+            textInput = buttonValue; 
+        }
+        
         if (!textInput) {
             console.warn("No input provided");
             return;
@@ -42,15 +48,18 @@ function Overview() {
 
             //set confidence score
             setConfidence(Math.round(responseData.confidence * 100));
-
-            setMessages((prevMessages) => [
-                { sender: "testUser", type: "text", messageData: input },
+           
+            if(!buttonValue) {
+                setMessages((prevMessages) => [
+                    { sender: "testUser", type: "text", messageData: input },
                 ...prevMessages,
-            ]);
+                ]);
+            }
 
             responseData.content.map((message) => {
                 let type = "text";
                 let messageData;
+                console.log("Item detected");
 
                 if (message.image) {
                     type = "image";
@@ -58,10 +67,17 @@ function Overview() {
                 } else if (message.text) {
                     type = "text";
                     messageData = message.text;
+                } else if (message.buttons) {
+                    type = "buttons";
+                    messageData = message.buttons;
+                    console.log("Button detected");
+                } else if (message.custom) {
+                    type = "link"
+                    messageData = message.custom;
                 }
 
                 setMessages((prevMessages) => [
-                    { sender: "bot", type: "button", messageData: messageData },
+                    { sender: "bot", type: type, messageData: messageData },
                     ...prevMessages,
                 ]);
             });
@@ -124,17 +140,24 @@ function Overview() {
                             {messages.map((message, index) => (
                                 message.type === "text" ? (
                                     <div className={message.sender === "bot" ? "botReply" : "botQuestion"} key={index}>
-                                        <div className="text">{message.messageData}</div>
+                                        <div className="text"
+                                        dangerouslySetInnerHTML={{ __html: message.messageData }}></div>
                                     </div>
                                 ) : message.type === "image" ? (
-                                    <img className="botImage" src={message.messageData} />
-                                ) : message.type === "button" ? (
-                                    <div className="buttonContainer">
-                                        <div onClick={() => handleButtonClick("Hello")} className="buttonOption">
-                                            <div>Option 1</div>
+                                    <img key={index} className="botImage" src={message.messageData} />
+                                ) : message.type === "link" ? (
+                                    <div className={message.sender === "bot" ? "botReply" : "botQuestion"} key={index}>
+                                        <div className="text">
+                                            <a href={message.messageData.link} target="_blank">Listings for {message.messageData.name}</a>
                                         </div>
-                                        <div onClick={() => handleButtonClick("Bye")} className="buttonOption">
-                                            <div>Option 2</div>
+                                    </div>
+                                ) : message.type === "buttons" ? (
+                                    <div className="buttonContainer" key={index}>
+                                        <div onClick={() => handleButtonClick(message.messageData[0].payload)} className="buttonOption">
+                                            <div>{message.messageData[0].title}</div>
+                                        </div>
+                                        <div onClick={() => handleButtonClick(message.messageData[1].payload)} className="buttonOption">
+                                            <div>{message.messageData[1].title}</div>
                                         </div>
                                     </div>
                                 ) : null
