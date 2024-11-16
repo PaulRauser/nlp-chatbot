@@ -40,21 +40,25 @@ rules:
 - rule: ask capabilities
   steps:
   - intent: ask_capabilities
+  - action: action_set_last_intent
   - action: utter_ask_capabilities
 
 - rule: ask creator
   steps:
   - intent: ask_creator
+  - action: action_set_last_intent
   - action: utter_ask_creator
 
 - rule: ask technology
   steps:
   - intent: ask_technology
+  - action: action_set_last_intent
   - action: utter_ask_technology
 
 - rule: ask recommendations
   steps:
   - intent: ask_recommendations
+  - action: action_set_last_intent
   - action: utter_ask_recommendations
 
 - rule: report a bug

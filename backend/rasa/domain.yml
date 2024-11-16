@@ -150,14 +150,14 @@ responses:
   - text: "Don't miss out on the opportunity to walk the pitlane and the grid on Friday evening."
   
   utter_report_bug:
-  - text: "Thanks for letting me know! I’ll make sure it gets looked at."
-  - text: "I appreciate the feedback! We’ll work on fixing it."
-  - text: "Your feedback is helpful. Thank you!"
+  - text: "To report a bug you can send an email to p.rauser@outlook.com"
+  - text: "If you've found a bug, you can report it to p.rauser@outlook.com"
+  - text: "Report any bugs to p.rauser@outlook.com"
   
   utter_feedback:
-  - text: "I’d love to hear what you think! Your feedback helps me improve."
-  - text: "Feel free to share any thoughts on how I can help better."
-  - text: "Thank you for your feedback!"
+  - text: "My creator would love to hear what you think! Your feedback helps me improve. Send it to p.rauser@outlook.com"
+  - text: "Feel free to share any thoughts on how I can help better to p.rauser@outlook.com"
+  - text: "Feel free to send your feedback to p.rauser@outlook.com"
   
   utter_ask_number_of_teams:
   - text: "The race hosts about 100-150 teams each year."
