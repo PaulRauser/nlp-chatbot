@@ -8,21 +8,20 @@ nlu:
     - Scherer Sport
     - Lionspeed GP
     - Red Bull Abt
-    - Falken 
-    - Walkenhorst
+    - Falken Motorsport 
+    - Walkenhorst Motorsport
     - Rowe Racing
     - Manthey
     - Bilstein Motorsport
 
 - lookup: driver_name
   examples: |
-    - Vincent Kolb
     - Ricardo Feller
     - Frank Stippler
-    - Kelvin Van der Linde
+    - Kelvin van der Linde
     - Marco Mapelli
     - David Pittard
-    - Daniel Harper
+    - Dan Harper
     - Augusto Farfus
     - Maro Engel
     - Kevin Estre
@@ -30,13 +29,13 @@ nlu:
 - lookup: car_name
   examples: |
     - Ferrari 296 GT3
-    - Mercedes-AMG GT3
-    - Porsche 911 GT3 R
+    - Mercedes AMG GT3
+    - Porsche 911 GT3
     - Lamborghini Huracan GT3
     - Audi R8 GT3 
     - Aston Martin Vantage GT3
     - BMW M4 GT3
-    - Toyota GR Supra GT4
+    - Toyota Supra GT4
     - BMW M3 CSL
     - Dacia Logan
 
@@ -73,10 +72,15 @@ nlu:
     - Tell me about [Frikadelli Racing](team_name).
     - Do you have any information on [Manthey](team_name)?
     - I’m interested in [Rowe Racing](team_name), could you tell me more?
-    - What’s special about [Falken](team_name)?
-    - Give me details on [Walkenhorst](team_name).
+    - What’s special about [Falken Motorsport](team_name)?
+    - Give me details on [Walkenhorst Motorsport](team_name).
+    - Can you give me some info about [Herbert Motorsport](team_name)?
     - I’d like to know about [Red Bull Abt](team_name).
     - Any highlights on [Bilstein Motorsport](team_name)?
+    - Please tell me about [Herbert Motorsport](team name).
+    - Can you please tell me about [Lionspeed GP](team_name).
+    - I want to know more about [Scherer Motorsport](team_name).
+    - Do you have any information about [Falken Motorsport](team_name)?
 
 # For specific car information requests
 - intent: ask_car_detail
@@ -86,19 +90,22 @@ nlu:
     - Give me information on the [Porsche 911 GT3 R](car_name).
     - How does the [BMW M4 GT3](car_name) perform?
     - Tell me more about the [Aston Martin Vantage GT3](car_name).
-    - Do you have any details on the [Toyota GR Supra GT4](car_name)?
+    - Do you have any details on the [Toyota Supra GT4](car_name)?
+    - Please tell me more about the [Lamborghini Huracan GT3](car_name)?
     - What’s special about the [Mercedes-AMG GT3](car_name)?
+    - Please tell me more about the [Dacia Logan](car_name)
+    - Can you tell me about the [BMW M3 CSL](car_name)?
 
 # For specific driver information requests
 - intent: ask_driver_detail
   examples: |
     - Can you tell me about [Kevin Estre](driver_name)?
     - I’d like to know more about [Frank Stippler](driver_name).
-    - Do you have details on [Vincent Kolb](driver_name)?
+    - Do you have details on [Dan Harper](driver_name)?
     - Tell me about [Ricardo Feller](driver_name).
     - What’s the background of [Maro Engel](driver_name)?
     - I want information on [Marco Mapelli](driver_name).
     - Give me details on [Augusto Farfus](driver_name).
-    - Could you share info about [Kelvin Van der Linde](driver_name)?
+    - Could you share info about [Kelvin van der Linde](driver_name)?
     - Tell me about [David Pittard](driver_name).
-    - Any information on [Daniel Harper](driver_name)?
+    - Any information on [Dan Harper](driver_name)?

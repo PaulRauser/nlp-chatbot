@@ -1,0 +1,57 @@
+version: "3.1"
+rules:
+- rule: Respond to ask_highlights
+  steps:
+  - intent: ask_highlights
+  - action: utter_ask_highlights
+
+- rule: Respond to ask_evolution
+  steps:
+  - intent: ask_evolution
+  - action: utter_ask_evolution
+
+- rule: Respond to ask_location
+  steps:
+  - intent: ask_location
+  - action: utter_ask_location
+
+- rule: Respond to ask_schedule
+  steps:
+  - intent: ask_schedule
+  - action: utter_ask_schedule
+
+- rule: Respond to ask_weather
+  steps:
+  - intent: ask_weather
+  - action: utter_ask_weather
+
+- rule: Respond to ask_track_info
+  steps:
+  - intent: ask_track_info
+  - action: utter_ask_track_info
+
+- rule: Respond to ask_trivia
+  steps:
+  - intent: ask_trivia
+  - action: utter_ask_trivia
+
+- rule: Respond to ask_ticket_info
+  steps:
+  - intent: ask_ticket_info
+  - action: utter_ask_ticket_info
+
+- rule: Respond to ask_accommodation_info
+  steps:
+  - intent: ask_accommodation_info
+  - action: utter_ask_accommodation_info
+
+- rule: Respond to ask_regulation_info
+  steps:
+  - intent: ask_regulation_info
+  - action: utter_ask_regulation_info
+
+- rule: Respond to ask_parking_info
+  steps:
+  - intent: ask_parking_info
+  - action: utter_ask_parking_info
+

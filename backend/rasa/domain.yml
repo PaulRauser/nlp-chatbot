@@ -5,6 +5,8 @@ actions:
   - action_provide_team_detail
   - action_provide_car_detail
   - action_provide_driver_detail
+  - action_show_listings
+  - action_deny_show_listings
 
 entities:
   - participant_type
@@ -55,25 +57,30 @@ intents:
   - ask_recommendations
   - report_bug
   - feedback
+
+  # Action intents
+  - show_listings
+  - deny_show_listings
   
   # Content intents
   - ask_highlights
   - ask_evolution
-  - ask_track_evolution
-  - ask_records
   - ask_location
   - ask_schedule 
   - ask_weather 
-  - ask_visitor_info 
   - ask_track_info 
-  - ask_participant_info 
-  - ask_team_detail
-  - ask_car_detail
-  - ask_driver_detail
   - ask_trivia 
   - ask_ticket_info 
   - ask_accommodation_info 
   - ask_regulation_info
+  - ask_parking_info
+  
+
+  # Detail info
+  - ask_participant_info 
+  - ask_team_detail
+  - ask_car_detail
+  - ask_driver_detail
 
 
 responses:
@@ -83,11 +90,15 @@ responses:
   utter_greet:
   - text: "Hello! How can I help you today?"
   - text: "Hi there! What would you like to know about the Nürburgring 24h race?"
-  - text: "Hey! Need information on the race?"
+  - text: "Hey! I'm here to answer your questions about the Nürburgring 24 race. What can I do for you?"
 
   utter_affirm:
   - text: "I'm happy I could help you, is there anything else I can do for you?"
   - text: "Glad I could help, how can I be of further assistance?"
+
+  utter_anything_else:
+    - text: "Is there anything else I can help you with?"
+    - text: "Can I help you with something else instead?"
   
   utter_goodbye:
   - text: "Goodbye! Feel free to ask anytime."
@@ -109,24 +120,25 @@ responses:
   - text: "You are talking to an actual person now"
   
   utter_ask_capabilities:
-  - text: "I can tell you all about the Nürburgring 24h race, from history to ticket info!"
-  - text: "I'm here to answer questions about the Nürburgring event, teams, drivers, and more."
-  - text: "Ask me anything about the Nürburgring 24h – I'm ready!"
+  - text: "I can tell you all about the Nürburgring 24h race, from history to ticket infos. Try asking me about the cars, teams and drivers in the race."
+  - text: "I'm here to answer questions about the Nürburgring event, teams, drivers, cars and more."
+  - text: "I was built to answer your questions about the Nürburgring 24h race. Ask me about cars, teams, drivers and more."
   
   utter_ask_creator:
-  - text: "I was created to help you learn about the Nürburgring 24h race!"
-  - text: "I’m a digital assistant built for Nürburgring fans like you."
-  - text: "I'm here to answer questions about the race, thanks to my creators."
+  - text: "I was created to help you learn about the Nürburgring 24h race by a fan just like you."
+  - text: "I’m was created to help you with your questions about the Nürburgring 24h race."
+  - text: "I'm here to answer questions about the race, thanks to my creator."
   
   utter_ask_technology:
-  - text: "I’m built with Rasa and backed by advanced NLP technology."
-  - text: "My brain runs on Rasa, powered by machine learning and NLP."
-  - text: "I use Rasa’s NLP technology to understand and answer your questions."
+  - text: "I’m built with Rasa and backed by advanced NLP technology. More info can be found on the linked GitHub."
+  - text: "My brain runs on Rasa, powered by machine learning and NLP. To learn more check out the linked GitHub"
+  - text: "I use Rasa’s NLP technology to understand and answer your questions. Check out the linked GitHub to learn more."
   
   utter_ask_recommendations:
-  - text: "For race fans, I recommend checking out the best viewing spots and race schedule."
-  - text: "Explore the Nordschleife sections – it's an iconic experience!"
-  - text: "Be sure to visit the fan zone; it’s a highlight of the event."
+  - text: "I recommend visiting the Grand Prix track and the Nordschleife for different perspectives on the race."
+  - text: "I recommend coming one day early to also see the Top Qualifying and the Falken Drift Show in the Müllenbachschleife"
+  - text: "Be sure to spend some time in the drivers camp (Fahrerlager) to get a close look of the cars and the teams working."
+  - text: "Don't miss out on the opportunity to walk the pitlane and the grid on Friday evening."
   
   utter_report_bug:
   - text: "Thanks for letting me know! I’ll make sure it gets looked at."
@@ -138,31 +150,6 @@ responses:
   - text: "Feel free to share any thoughts on how I can help better."
   - text: "Thank you for your feedback!"
   
-  utter_ask_history:
-  - text: "The Nürburgring 24h has a rich history dating back to 1970. Want to know more?"
-  - text: "The 24h race started in 1970 and has been thrilling fans ever since!"
-  - text: "It’s a legendary race, started in 1970. Would you like some key highlights?"
-  
-  utter_ask_highlights:
-  - text: "Some memorable highlights include fierce night battles and record-breaking laps."
-  - text: "The Nürburgring is known for its thrilling overtakes and intense night racing."
-  - text: "Every race has its unforgettable moments. Do you want to hear a few recent ones?"
-  
-  utter_ask_evolution:
-  - text: "The race has evolved with modern safety features and team strategies."
-  - text: "From its early days, the Nürburgring race has added more classes and tech."
-  - text: "The track and race have evolved a lot since the 70s. Want to hear about it?"
-  
-  utter_ask_track_evolution:
-  - text: "The Nürburgring has seen updates for safety and speed over the years."
-  - text: "Originally built in the 1920s, the track has been modernized over time."
-  - text: "It’s a mix of history and innovation – would you like specific details?"
-  
-  utter_ask_records:
-  - text: "The fastest lap record is held by a Porsche 911 GT3. Want more records?"
-  - text: "The Nürburgring has some impressive records in speed and endurance."
-  - text: "Records here are often broken. Would you like the latest times?"
-  
   utter_ask_number_of_teams:
   - text: "The race hosts about 100-150 teams each year."
   - text: "Each year, around 150 teams participate, from amateurs to pros."
@@ -172,60 +159,92 @@ responses:
   - text: "Each team has around 3-4 drivers, adding up to hundreds of participants."
   - text: "The 24h race involves hundreds of drivers, both veterans and rookies."
   - text: "There are usually around 3-4 drivers per team."
-  
-  utter_ask_location:
-  - text: "The Nürburgring is located in the Eifel mountains of Germany."
-  - text: "This famous track is in Nürburg, Germany."
-  - text: "It’s located in western Germany, near the village of Nürburg."
-  
-  utter_ask_schedule:
-  - text: "The race schedule spans an entire weekend, from practice to the main event."
-  - text: "It starts with practice sessions on Thursday, and the race is Saturday-Sunday."
-  - text: "I can share the full schedule – what days are you interested in?"
-  
-  utter_ask_weather:
-  - text: "Weather at Nürburgring is unpredictable! Rain and fog are common."
-  - text: "The forecast changes quickly here. Are you asking about race day?"
-  - text: "Weather can be a huge factor – especially when it rains at night."
-  
-  utter_ask_visitor_info:
-  - text: "There are plenty of activities for fans, from fan zones to car shows!"
-  - text: "The race is a festival for fans – here are some tips for first-time visitors."
-  - text: "Visitors enjoy fan areas, great views, and activities throughout the race."
-  
-  utter_ask_track_info:
-  - text: "The Nürburgring is a 25km track known for its challenging sections."
-  - text: "It has iconic parts like the Nordschleife and tight, technical turns."
-  - text: "This track is complex and thrilling – do you want details on a section?"
-  
-  utter_ask_participant_info:
-  - text: "Teams vary from major manufacturers to private teams. Do you have one in mind?"
-  - text: "I can tell you about the drivers, cars, and teams. Who are you curious about?"
-  - text: "Each team has unique strategies and car setups. Would you like details on a specific one?"
-
-  utter_ask_trivia:
-  - text: "Did you know the Nürburgring is nicknamed the ‘Green Hell’?"
-  - text: "Here’s a fun fact: The Nordschleife was built in 1927!"
-  - text: "The race is one of the toughest in motorsport. Want to hear some trivia?"
-
-  utter_ask_ticket_info:
-  - text: "Tickets range from day passes to weekend packages. Want details?"
-  - text: "You can purchase tickets online or at the venue. Need help with types?"
-  - text: "I can help with ticket info – are you looking for a specific pass?"
-
-  utter_ask_accommodation_info:
-  - text: "Camping is popular at the Nürburgring, but there are hotels nearby too."
-  - text: "There’s on-site parking, camping, and nearby hotels for fans."
-  - text: "Visitors can choose camping, parking, or hotels – I can help with any."
-
-  utter_ask_regulation_info:
-  - text: "Teams must meet strict eligibility requirements to compete."
-  - text: "The 24h race has classes based on car type, plus technical inspections."
-  - text: "I can explain regulations – are you interested in eligibility or car rules?"
-
 
   utter_ask_participant_type:
     - text: "Would you like to know about teams, cars, or drivers?"
+
+  utter_ask_highlights:
+    - text: "In 2024 the Walkenhorst Aston Martin had do drive almost an entire lap with a broken wheel, causing it to fall more than a lap behind in the first lap."
+    - text: "Due to a fuel line failure an Audi S3 caught fire on track. The driver tried to put out the fire but in the end the car wasn't able to be saved. No one got hurt during the accident."
+      image: "https://www.ringtube.de/wp-content/uploads/2024/06/7cFBX9MaZjw.jpg"
+    - text: "The 2024 race was the first ever race to be cancelled before the 24h hours were over. Fog made it impossibl for the drivers to drive safely so after more than 12 hours of waiting for the fog to clear race management ended the race."
+    - text: "With more than 240.000 visitors the 2024 was almost beat the visitor record of 2011 when 250.000 visitors came to the Ring."
+
+  utter_ask_evolution:
+    - text: "Before the 70s there were races on the Nürburgring but they were more like Rallyes."
+    - text: "The first circuit race was on the 27th and 28th of June 1970. The race speeds were with 158 km/h at the top level around 20 km/h slower than today."
+      image: "https://www.nuerburgringclassic.de/images/teilnehmer/ergebnisse-2017.jpg"
+    - text: "In the beginning mainly cars close to stock were driving in the race. Starting from the early 2000s more professional teams with GT cars started participating."
+    - text: "Since 1999 the only requirements for cars are safety requirements that's why a Dacia Logan and a Lamborghini Huracan participate in the same race."
+
+  utter_ask_location:
+    - text: "The Nürburgring 24h race takes place at the Nürburgring at the small city of Nürburg in the German Eifel."
+    - image: "ihttps://i.pinimg.com/originals/7a/f0/e3/7af0e3c2897e118107913d5a6bfc02b7.jpg"
+      text: "The Race takes place at the Nürburgring at the village of Nürburg. From the track you can see the Nürburg castel which also called Nürburg"
+    - text: "The heart of the Nürburgring is the Norschleife. A track that is surrounded entirely by nature."
+    - image: "https://www.24h-rennen.de/wp-content/uploads/2020/07/24h-Rennen-Lageplan-Nordschleife-1030x686-1.jpg"
+      text: "Here is a map of all the important locations at and around the track."
+
+  utter_ask_schedule:
+    - text: "The 2024 race focused schedule can be found below - Ask again to find out about all other events."
+      custom:
+        name: "Race Schedule"
+        link: "https://www.24h-rennen.de/wp-content/uploads/2024/02/240221-24h-Zeitplan-24h-Nuerburgring.pdf"
+    - text: "A fan guide including an event schedule can be found below - Ask again for just the race schedule."
+      custom:
+        name: "Fan Guide"
+        link: "https://www.adac-nordrhein.de/wp-content/uploads/sites/49/2023/05/WEB_interaktiv_Umbruch_24h-Rennen-Fanguide_2024_A6_RZ.pdf"
+
+  utter_ask_weather:
+    - text: "The weather plays a big role at the Nürburgring race. The Eifel is unpredictable and because the track is so long, there can be sunshine on half the track and pouring rain on the other side."
+      image: "https://www.speed-magazin.de/storage/articles/images/2020/09/whatsappimage2020-09-26at12.23.12.jpeg"
+    - text: "A large problem related to weather is fog. Especially at night if there is fog driving at speeds over 200 km/h becomes very dangerous."
+      image: "https://cdn-1.motorsport.com/static/img/amp/6500000/6530000/6538000/6538400/6538446/s6_8856615/rote-flagge-bei-24h-nuerburgring-2021-dichter-nebel-an-der-nordschleife-21060504.jpg"
+    - text: "When planning for a visit, be prepared for all different kinds of weather. Always bring rain clothing as the weather can change quickly and is difficult to predict."
+
+  utter_ask_track_info:
+    - text: "The majority of the track is around the Norschleife. The Norschleife is surrounded by nature and is therefore called the Green Hell"
+    - text: "The track is build around the village of Nürburg meaning the village is entirely withing the bounds of the Norschleife"
+    - image: "https://i.pinimg.com/736x/2a/6e/c3/2a6ec3d31fab3b252da109fda7f8e187.jpg"
+      text: "The fastest speeds are reached at the Döttinger Höhe a long straight where speeds were limited due to accidents"
+    - image: "https://ih1.redbubble.net/image.22902920.3442/flat,1000x1000,075,f.jpg"
+      text: "One of the most spectacular spots at the track is the Caracciola Karussel an extremely tight set of corners"
+    - text: "The Nordschleife has a height difference of several hundred meters making it very difficult to drive."
+    - text: "Find all information about the important sections of the track here (bottom of page):"
+      custom:
+        name: "Track Sections"
+        link: "https://www.24h-rennen.de/vor-ort-erlebnis/"
+
+  utter_ask_regulation_info:
+    - text: "The most important regulations are safety regulations. Each car needs to be equipped with a cage and other safety relevant features."
+    - text: "Each class has its own regulations. For example based on power, displacement, etc."
+    - text: "In addition to vehicle regulations drivers also have specific licenses to be allowed to drive in the race."
+
+  utter_ask_trivia:
+    - text: "The Nürburgring 24h track is with more than 25 km the longest race track in the world."
+    - text: "5345 racecars reached the finish of the 24h race in the 51 years up until 2023."
+    - text: "The Frikadelli Ferrari drove 4111 km in the 2023 race which is the current distance record for the race"
+    - text: "In 2023 there were 58 years between the youngest driver on the grid (18 yo) and the oldest (76 yo)"
+
+  utter_ask_ticket_info:
+    - text: "Tickets can be bought directly on the Website of the race (watch out - presales usually start in December, before that no tickets are available). You can also buy ticket bundles at service-zum-nuerburgring.de or directly at the event."
+    - text: "Tickets are available at the website of the race from December, at service-zum-nuerburgring.de and directly at the track."
+    - text: "You can buy weekend tickets (Friday, Saturday, Sunday), four day tickets (including Thursday) and daily tickets. Buying at the track is 5€ more expensive. Children until the age of 12 are free and ticket prices until the age of 15 are reduced."
+
+  utter_ask_accommodation_info:
+    - text: "Most fans stay at camping places around the track. You can even watch the race right from the camping place."
+      image: "https://www.24h-rennen.de/wp-content/uploads/2020/08/s24hNbr19_0061664PF_LDN.jpg"
+    - text: "If you don't want to stay at a campling place there are hotels near the track but be prepared to pay high prices for these hotels. The farther you get from the track, the cheaper the hotels."
+    - text: "If you just want to stay for the two race days, there is also the option to just stay at the track for the entirety of the race."
+
+  utter_ask_parking_info:
+    - text: "When looking for parking places around the track, make sure to either be early or plan with at least one to two hours of searching for a space, especially on Saturday."
+      image: "https://www.24h-rennen.de/wp-content/uploads/2022/05/Grundplan_mitLegende-1536x884.jpg"
+    - text: "There are enough parking places around the track but make sure to plan with long searches for space and walks of 40 min or more to the track. Also be aware that being early can be worth it a lot."
+      image: "https://www.24h-rennen.de/wp-content/uploads/2022/05/Grundplan_mitLegende-1536x884.jpg"
+    - text: "There a various options for parking. Be sure to plan where you want to park before coming to the event and to also have at least one backup plan."
+      image: "https://www.24h-rennen.de/wp-content/uploads/2022/05/Grundplan_mitLegende-1536x884.jpg"
+
 
 session_config:
   session_expiration_time: 60

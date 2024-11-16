@@ -1,0 +1,142 @@
+version: "3.1"
+
+nlu:
+- intent: ask_highlights
+  examples: |
+    - What were the highlights of the Nürburgring 24h race this year?
+    - Can you summarize the key moments from the latest race?
+    - Tell me about the best parts of the recent Nürburgring 24 hours race.
+    - Can you tell me about some highlights of the race?
+    - What about some race highlight?
+    - Can you tell me about some race highlights?
+    - I want to know about race highlights
+    - Is there anything I need to know about race highlights?
+
+- intent: ask_evolution
+  examples: |
+    - How has the Nürburgring 24h race changed over time?
+    - Can you tell me about the history and evolution of this race?
+    - How has this race evolved since it started?
+    - What are the biggest changes in the Nürburgring 24h race over the years?
+    - Has the format of the race changed since its inception?
+    - How has the race evolved over time?
+    - What can you tell me about the evolution of the race?
+    - Tell me about the history of the race
+    - What about the history?
+    - What do I need to know about the history of the race?
+    - Are there interesting details about the history of the race?
+
+- intent: ask_location
+  examples: |
+    - Where does the Nürburgring 24h race take place?
+    - Can you tell me about the location of the Nürburgring?
+    - What’s the exact location of the Nürburgring?
+    - Where is the Nürburgring track located in Germany?
+    - Where is the tack located?
+    - Can you tell me about the location of the track?
+    - What do I have to know about the tracks location?
+    - What about the location of the track?
+
+- intent: ask_schedule
+  examples: |
+    - What’s the schedule for this year’s Nürburgring 24h race?
+    - Can you tell me the timetable for the race?
+    - When does the race start and finish?
+    - What are the key times for the Nürburgring 24h race?
+    - Is there a detailed schedule available for the event?
+    - Can you give me a schedule for the race?
+    - Is there a schedule for the race?
+    - What about a race schedule?
+    - Do you have a schedule for me?
+    - Is there a schedule with all the important events?
+    - What about the race timetable?
+    - Please tell me about the timetable of the race
+
+- intent: ask_weather
+  examples: |
+    - What’s the weather forecast for the Nürburgring 24h race?
+    - Will it rain during this year’s race?
+    - How’s the weather looking for the event?
+    - What’s the expected temperature during the race?
+    - Can you tell me about the weather at the race?
+    - What about the weather?
+    - What can you tell me about the weather?
+    - Is there somethign I need to know about the weather?
+    - How does fog influence the race?
+    - How likely is rain during the race?
+
+- intent: ask_track_info
+  examples: |
+    - Can you give me details about the Nürburgring track?
+    - How long is the track used for the 24h race?
+    - What are the unique features of the Nürburgring circuit?
+    - How many turns does the Nürburgring track have?
+    - Is the entire Nordschleife used during the 24-hour race?
+    - Can you tell me about the track?
+    - Please tell me more about the track
+    - Tell me about the track
+    - Tell me more about the track
+    - I want to know some info about the track.
+
+- intent: ask_trivia
+  examples: |
+    - Can you share some fun facts about the Nürburgring 24h race?
+    - Do you know any cool trivia about this event?
+    - What’s something interesting about the Nürburgring 24h?
+    - Are there any quirky traditions associated with the race?
+    - Please tell me some fun facts about the race
+    - Can you tell me some interesting facts about the race
+    - Tell me something cool about the race
+    - What about some fun facts?
+
+- intent: ask_ticket_info
+  examples: |
+    - Where can I buy tickets for the Nürburgring 24h race?
+    - How much do tickets for the event cost?
+    - Are there VIP ticket options available?
+    - Can you provide details about ticket categories?
+    - Is it possible to buy tickets at the gate?
+    - Tell me where I can buy tickets.
+    - Where can I buy tickets for the race?
+    - Is there a way to preorder tickets?
+    - Can I buy tickets before the event?
+    - What about tickets?
+    - Where can I buy tickets?
+
+- intent: ask_accommodation_info
+  examples: |
+    - Where can I stay near the Nürburgring during the race?
+    - Can you suggest accommodations for the event?
+    - Are there camping options available at the Nürburgring?
+    - What’s the best place to stay for the 24-hour race?
+    - Are there hotels close to the track?
+    - Where can I stay durign the race?
+    - What are the best places to stay at during the race?
+    - Can I stay at a camping place?
+    - What about accomodation?
+
+- intent: ask_regulation_info
+  examples: |
+    - What are the rules for the Nürburgring 24h race?
+    - Can you explain the regulations for this event?
+    - Are there any changes to the rules this year?
+    - What’s the minimum driver stint time in the race?
+    - How are penalties handled in the Nürburgring 24h?
+    - Pleas tell me more about the regulations at the race
+    - Can you tell me about some regulations of the race
+    - Tell me more about regulations.
+    - What about regulations?
+
+
+- intent: ask_parking_info
+  examples: |
+    - Please tell me about the parking situation.
+    - Can you tell me where to park?
+    - What do I need to know about the parking situation
+    - Where can I park?
+    - Where is it best to park around the track?
+    - Where are available parking spaces?
+    - How long do I have to walk from the parking space?
+    - Is there enough capacity at the parking places?
+    - What about parking?
+

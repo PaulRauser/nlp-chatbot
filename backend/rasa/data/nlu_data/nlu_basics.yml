@@ -30,6 +30,8 @@ nlu:
     - bye bye
     - see you later
 
+- intent: thank_you
+
 - intent: affirm
   examples: |
     - yes

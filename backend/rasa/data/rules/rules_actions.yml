@@ -1,0 +1,12 @@
+version: "3.1"
+
+rules:
+  - rule: Show listings when user clicks Yes
+    steps:
+      - intent: show_listings
+      - action: action_show_listings
+
+  - rule: Handle No to listings
+    steps:
+      - intent: deny_show_listings
+      - action: utter_anything_else
