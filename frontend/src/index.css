@@ -8,50 +8,60 @@
 }
 
 :root {
-  --background-color: linear-gradient(347deg, rgba(42,42,40,1) 0%, rgba(31,31,30,1) 49%, rgba(21,21,20,1) 100%);
-  --background-light: #363636; 
-  --background-medium: #1f1f1f; 
+  --background-color: linear-gradient(
+    347deg,
+    rgba(42, 42, 40, 1) 0%,
+    rgba(31, 31, 30, 1) 49%,
+    rgba(21, 21, 20, 1) 100%
+  );
+  --background-light: #363636;
+  --background-medium: #1f1f1f;
 
-  --text-color: #e0e0e0; 
-  --light-text: #bbbbbb; 
+  --text-color: #e0e0e0;
+  --light-text: #bbbbbb;
 
-    --accent-color-1: #950e12;
-  --accent-color-2: #CE1218;
+  --accent-color-1: #950e12;
+  --accent-color-2: #ce1218;
 }
-
 
 .light-theme {
-  --background-color: #C6C8C6;
-  --background-light: #DBDFDB;
-    --background-medium: #B5BAB5;
-  --text-color: #000000;
-  --light-text: #888888;
-  --accent-color-1: #6FC633;
-  --accent-color-2: #8BD459;
+    --background-color: linear-gradient(135deg, #F2F4F1, #E1E6E1);
+  --background-light: #ffffff; 
+  --background-medium: #efefef; 
+  --text-color: #333333; 
+  --light-text: #888888; 
+
+  /* Linear Gradient for Accent Colors */
+  --accent-color-1: #6fc633; 
+  --accent-color-2: #8bd459;
 }
-
 .dark-theme {
-  --background-color: linear-gradient(347deg, rgba(42,42,40,1) 0%, rgba(31,31,30,1) 49%, rgba(21,21,20,1) 100%);
-  --background-light: #363636; 
-  --background-medium: #1f1f1f; 
+  --background-color: linear-gradient(
+    347deg,
+    rgba(42, 42, 40, 1) 0%,
+    rgba(31, 31, 30, 1) 49%,
+    rgba(21, 21, 20, 1) 100%
+  );
+  --background-light: #363636;
+  --background-medium: #1f1f1f;
 
-  --text-color: #e0e0e0; 
-  --light-text: #bbbbbb; 
+  --text-color: #e0e0e0;
+  --light-text: #bbbbbb;
 
   /* --accent-color-1: linear-gradient(90deg, rgba(149,14,18,1) 0%, rgba(75,7,9,1) 50%); */
   /* --accent-color-2: linear-gradient(-90deg, rgba(206,18,24,1) 0%, rgba(150,13,18,1) 50%); */
-    --accent-color-1: #950e12;
-  --accent-color-2: #CE1218;
+  --accent-color-1: #950e12;
+  --accent-color-2: #ce1218;
 }
 
 .race-theme {
   --background-color: #000000;
-  --background-light: rgba(0,0,0,.5);
-    --background-medium: rgba(0,0,0,.4);
+  --background-light: rgba(0, 0, 0, 0.5);
+  --background-medium: rgba(0, 0, 0, 0.4);
   --text-color: #dddddd;
   --light-text: #aaaaaa;
-  --accent-color-1: rgba(0,0,0,.3);
-  --accent-color-2: rgba(0,0,0,.2);
+  --accent-color-1: rgba(0, 0, 0, 0.3);
+  --accent-color-2: rgba(0, 0, 0, 0.2);
 }
 
 body {

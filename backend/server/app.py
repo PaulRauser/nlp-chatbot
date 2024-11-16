@@ -1,3 +1,4 @@
+from db import insert_user_input
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import requests
@@ -16,6 +17,9 @@ def handle_data():
     request_data = request.get_json().get("text")
     if not request_data:
         return jsonify({"Error:": "No message provided"}), 400
+
+    # Add user input to database
+    insert_user_input(request_data)
 
     parse_response = requests.post(
         RASA_MODEL_URL,

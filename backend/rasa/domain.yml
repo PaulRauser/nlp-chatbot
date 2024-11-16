@@ -7,6 +7,8 @@ actions:
   - action_provide_driver_detail
   - action_show_listings
   - action_deny_show_listings
+  - action_set_last_intent
+  - action_tell_more
 
 entities:
   - participant_type
@@ -43,6 +45,11 @@ slots:
       - type: from_entity
         entity: car_name 
 
+  last_intent:
+    type: text
+    influence_conversation: false
+    mappings: []
+
 intents:
   # Basic intents
   - greet
@@ -57,6 +64,8 @@ intents:
   - ask_recommendations
   - report_bug
   - feedback
+
+  - tell_more
 
   # Action intents
   - show_listings
@@ -179,7 +188,7 @@ responses:
 
   utter_ask_location:
     - text: "The Nürburgring 24h race takes place at the Nürburgring at the small city of Nürburg in the German Eifel."
-    - image: "ihttps://i.pinimg.com/originals/7a/f0/e3/7af0e3c2897e118107913d5a6bfc02b7.jpg"
+    - image: "https://i.pinimg.com/originals/7a/f0/e3/7af0e3c2897e118107913d5a6bfc02b7.jpg"
       text: "The Race takes place at the Nürburgring at the village of Nürburg. From the track you can see the Nürburg castel which also called Nürburg"
     - text: "The heart of the Nürburgring is the Norschleife. A track that is surrounded entirely by nature."
     - image: "https://www.24h-rennen.de/wp-content/uploads/2020/07/24h-Rennen-Lageplan-Nordschleife-1030x686-1.jpg"

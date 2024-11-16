@@ -3,55 +3,66 @@ rules:
 - rule: Respond to ask_highlights
   steps:
   - intent: ask_highlights
+  - action: action_set_last_intent
   - action: utter_ask_highlights
 
 - rule: Respond to ask_evolution
   steps:
   - intent: ask_evolution
+  - action: action_set_last_intent
   - action: utter_ask_evolution
 
 - rule: Respond to ask_location
   steps:
   - intent: ask_location
+  - action: action_set_last_intent
   - action: utter_ask_location
 
 - rule: Respond to ask_schedule
   steps:
   - intent: ask_schedule
+  - action: action_set_last_intent
   - action: utter_ask_schedule
 
 - rule: Respond to ask_weather
   steps:
   - intent: ask_weather
+  - action: action_set_last_intent
   - action: utter_ask_weather
 
 - rule: Respond to ask_track_info
   steps:
   - intent: ask_track_info
+  - action: action_set_last_intent
   - action: utter_ask_track_info
 
 - rule: Respond to ask_trivia
   steps:
   - intent: ask_trivia
+  - action: action_set_last_intent
   - action: utter_ask_trivia
 
 - rule: Respond to ask_ticket_info
   steps:
   - intent: ask_ticket_info
+  - action: action_set_last_intent
   - action: utter_ask_ticket_info
 
 - rule: Respond to ask_accommodation_info
   steps:
   - intent: ask_accommodation_info
+  - action: action_set_last_intent
   - action: utter_ask_accommodation_info
 
 - rule: Respond to ask_regulation_info
   steps:
   - intent: ask_regulation_info
+  - action: action_set_last_intent
   - action: utter_ask_regulation_info
 
 - rule: Respond to ask_parking_info
   steps:
   - intent: ask_parking_info
+  - action: action_set_last_intent
   - action: utter_ask_parking_info
 

@@ -1,6 +1,7 @@
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.events import SlotSet
 
 from .utilities import fetch_car_info, fetch_car_listings, fetch_driver_info, fetch_image_url, fetch_team_info
 
@@ -116,8 +117,9 @@ class ActionProvideCarDetail(Action):
                     {"title": "No", "payload": "/deny_show_listings"},
                 ]
             )
+        else:
+            dispatcher.utter_message(text="I can't find any info about this car")
 
-        # Fix
         return []
 
 
@@ -159,3 +161,46 @@ class ActionShowListings(Action):
 
         return []
 
+
+class ActionSetLastIntent(Action):
+    def name(self) -> Text:
+        return "action_set_last_intent"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        print("Tell me more")
+
+        # Get the last user intent
+        last_intent = tracker.latest_message['intent'].get('name')
+        print(f"Prev intent to be saved: {last_intent}")
+
+        # Set the slot
+        return [SlotSet("last_intent", last_intent)]
+
+
+class ActionTellMore(Action):
+    def name(self) -> Text:
+        return "action_tell_more"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        # Retrieve the last intent from the slot
+        last_intent = tracker.get_slot("last_intent")
+
+        if last_intent:
+            # Fetch the utterance or action dynamically from the domain
+            utter_action = f"utter_{last_intent}"
+            
+            if utter_action in domain.get("responses", {}):
+                # Call the utterance for the last intent
+                dispatcher.utter_message(response=utter_action)
+            else:
+                # Handle cases where there's no predefined utterance
+                dispatcher.utter_message(text="I don't have more information about this")
+        else:
+            dispatcher.utter_message(text="I'm not sure what you want to know more about.")
+        
+        return []

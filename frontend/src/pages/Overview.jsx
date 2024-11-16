@@ -119,7 +119,7 @@ function Overview() {
                 <div className="contentContainer">
                     {selectedTheme === "race-theme" && (
                         <iframe
-                            class="backgroundVideo"
+                            className="backgroundVideo"
                             src="https://www.youtube.com/embed/mn07l5d55Jw?si=LEmX5oL89-KQLArj&autoplay=1&mute=1&loop=1&playlist=mn07l5d55Jw&controls=0&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1&vq=hd1080"
                             title="Background video"
                             frameborder="0"

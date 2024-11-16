@@ -10,3 +10,9 @@ rules:
     steps:
       - intent: deny_show_listings
       - action: utter_anything_else
+
+  - rule: Respond to tell_more
+    steps:
+      - intent: tell_more
+      - action: action_tell_more
+
