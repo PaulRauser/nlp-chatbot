@@ -11,7 +11,7 @@ nlu:
     - Falken Motorsport 
     - Walkenhorst Motorsport
     - Rowe Racing
-    - Manthey
+    - Manthey Racing
     - Bilstein Motorsport
 
 - lookup: driver_name
@@ -50,6 +50,8 @@ nlu:
     - I’d like to know more about the [teams](participant_type) competing.
     - What are some notable [teams](participant_type) in the lineup?
     - Could you tell me more about each [team](participant_type) in the race?
+    - How many [teams](participant_type) are participating in the race?
+    - What is the number of [teams](participant_type) driving in the race?
 
     - Can you tell me about the [cars](participant_type) in the race?
     - What kind of [cars](participant_type) are competing this year?
@@ -57,6 +59,8 @@ nlu:
     - Tell me more about the [cars](participant_type) involved in the event.
     - Do you have a list of the [cars](participant_type) competing?
     - I’m interested in learning about the race [cars](participant_type).
+    - How many [cars](participant_type) are driving in the race?
+    - What is the number of [cars](participant_type) driving in the race?
 
     - Who are the [drivers](participant_type) competing this year?
     - Can you tell me about the top [drivers](participant_type) in the race?
@@ -65,12 +69,14 @@ nlu:
     - Give me details on the [drivers](participant_type) in the lineup.
     - Could you provide info on the [drivers](participant_type) for this race?
     - Who are the standout [drivers](participant_type) to watch?
+    - How many [drivers](participant_type) are participating in the race?
+    - What is the number of [drivers](participant_type) driving in the race?
 
 # For specific team information requests
 - intent: ask_team_detail
   examples: |
     - Tell me about [Frikadelli Racing](team_name).
-    - Do you have any information on [Manthey](team_name)?
+    - Do you have any information on [Manthey Racing](team_name)?
     - I’m interested in [Rowe Racing](team_name), could you tell me more?
     - What’s special about [Falken Motorsport](team_name)?
     - Give me details on [Walkenhorst Motorsport](team_name).
@@ -81,6 +87,15 @@ nlu:
     - Can you please tell me about [Lionspeed GP](team_name).
     - I want to know more about [Scherer Motorsport](team_name).
     - Do you have any information about [Falken Motorsport](team_name)?
+    - Can you tell me about [Falken](team_name)?
+    - I want to know more about [Manthey].
+    - Please tell me more about [Rowe](team_name).
+    - Any details about [Frikadelli](team_name)?
+    - Can you tell me more about [Falken](team_name)?
+    - I want to know about [Walkenhorst](team_name).
+    - Please tell me about [Bilstein](team_name).
+    - Tell me about [Walkenhorst](team_name).
+    - I'd like to know about [Scherer](team_name).
 
 # For specific car information requests
 - intent: ask_car_detail

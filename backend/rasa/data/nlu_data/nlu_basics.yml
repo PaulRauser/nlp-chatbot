@@ -31,6 +31,11 @@ nlu:
     - see you later
 
 - intent: thank_you
+  examples: |
+    - thanks
+    - thank you
+    - thanks a lot
+    - ty
 
 - intent: affirm
   examples: |
@@ -40,6 +45,7 @@ nlu:
     - of course
     - that sounds good
     - correct
+    - yes please
 
 - intent: deny
   examples: |
@@ -50,6 +56,17 @@ nlu:
     - don't like that
     - no way
     - not really
+    - no please 
+
+- intent: mood
+  examples: |
+    - How are you?
+    - How are you doing?
+    - How are you today?
+    - How are you feeling?
+    - Are you doing good?
+    - Are you feeling alright?
+    - Everything alright?
 
 - intent: bot_challenge
   examples: |

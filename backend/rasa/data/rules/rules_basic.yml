@@ -30,7 +30,12 @@ rules:
 - rule: respond to deny
   steps:
   - intent: deny
-  - action: utter_denied
+  - action: utter_deny
+
+- rule: respond to a mood question 
+  steps:
+  - intent: mood
+  - action: utter_mood 
 
 - rule: bot challenge
   steps:

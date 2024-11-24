@@ -27,7 +27,7 @@ class ActionListParticipants(Action):
                     <li>Red Bull ABT</li>
                     <li>Falken Motorsport</li>
                     <li>ROWE RACING</li>
-                    <li>Manthey</li>
+                    <li>Manthey Racing</li>
                     <li>Bilstein Motorsport</li>
                 </ul> \n
                 <p>Feel free to ask for more details on each of the teams above.</p>
@@ -169,7 +169,6 @@ class ActionSetLastIntent(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        print("Tell me more")
 
         # Get the last user intent
         last_intent = tracker.latest_message['intent'].get('name')

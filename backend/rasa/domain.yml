@@ -57,6 +57,7 @@ intents:
   - thank_you
   - affirm
   - deny
+  - mood
   - bot_challenge
   - ask_capabilities
   - ask_creator
@@ -84,7 +85,6 @@ intents:
   - ask_regulation_info
   - ask_parking_info
   
-
   # Detail info
   - ask_participant_info 
   - ask_team_detail
@@ -101,14 +101,22 @@ responses:
   - text: "Hi there! What would you like to know about the Nürburgring 24h race?"
   - text: "Hey! I'm here to answer your questions about the Nürburgring 24 race. What can I do for you?"
 
-  utter_affirm:
-  - text: "I'm happy I could help you, is there anything else I can do for you?"
-  - text: "Glad I could help, how can I be of further assistance?"
-
   utter_anything_else:
     - text: "Is there anything else I can help you with?"
     - text: "Can I help you with something else instead?"
-  
+
+  utter_mood:
+    - text: "I'm doing great, how can I help you today?"
+    - text: "What do you mean? I'm a bot, I don't have emotions. How can I help you?"
+
+  utter_deny:
+    - text: "I'm sorry. Let me know if I can help with anything else."
+    - text: "If you need something else, let me know."
+
+  utter_affirm:
+    - text: "Happy I could help. What else can I do for you?"
+    - text: "Let me know if there's anything else I can do to help"
+
   utter_goodbye:
   - text: "Goodbye! Feel free to ask anytime."
   - text: "See you! Let me know if you have more questions."
@@ -119,10 +127,6 @@ responses:
   - text: "Anytime! Let me know if there's anything else."
   - text: "Glad to be of assistance!"
   
-  utter_denied:
-    - text: "I'm sorry for that, maybe I can help you in another way?"
-    - text: "I'm very sorry. Maybe there's some other way I can help you?"
-
   utter_challenge:
   - text: "I am a bot made to help you learn about the Nürbrugring 24h race"
   - text: "I am a bot and will gladly help you learn about the Nürbrugring 24h"
@@ -135,8 +139,8 @@ responses:
   
   utter_ask_creator:
   - text: "I was created to help you learn about the Nürburgring 24h race by a fan just like you."
-  - text: "I’m was created to help you with your questions about the Nürburgring 24h race."
-  - text: "I'm here to answer questions about the race, thanks to my creator."
+  - text: "I was created as a personal project and am not affiliate with the official race."
+  - text: "I am a fan built bot here to answer questions about the race"
   
   utter_ask_technology:
   - text: "I’m built with Rasa and backed by advanced NLP technology. More info can be found on the linked GitHub."
@@ -158,16 +162,6 @@ responses:
   - text: "My creator would love to hear what you think! Your feedback helps me improve. Send it to p.rauser@outlook.com"
   - text: "Feel free to share any thoughts on how I can help better to p.rauser@outlook.com"
   - text: "Feel free to send your feedback to p.rauser@outlook.com"
-  
-  utter_ask_number_of_teams:
-  - text: "The race hosts about 100-150 teams each year."
-  - text: "Each year, around 150 teams participate, from amateurs to pros."
-  - text: "A wide range of teams join – do you want info on specific teams?"
-  
-  utter_ask_number_of_drivers:
-  - text: "Each team has around 3-4 drivers, adding up to hundreds of participants."
-  - text: "The 24h race involves hundreds of drivers, both veterans and rookies."
-  - text: "There are usually around 3-4 drivers per team."
 
   utter_ask_participant_type:
     - text: "Would you like to know about teams, cars, or drivers?"
