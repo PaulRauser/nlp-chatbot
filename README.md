@@ -46,7 +46,7 @@ Startup procedure:
 3. In a third terminal tab navigate to backend/server and run `python3 app.py`
 4. In a fourth tab (doesn't need venv running) navigate to /frontend and run `npm run dev`
 
-**Important**: venv should be started in /backend, calls to rasa should be executed in /rasa
+**Important**: venv should be started in /backend, calls to rasa should be executed in /rasa \
 **Note**: A trained model is part of the Git repo, to retrain run `rasa train` in /rasa
 
 ## Facts
