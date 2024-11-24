@@ -47,7 +47,8 @@ Startup procedure:
 4. In a fourth tab (doesn't need venv running) navigate to /frontend and run `npm run dev`
 
 **Important**: venv should be started in /backend, calls to rasa should be executed in /rasa \
-**Note**: A trained model is part of the Git repo, to retrain run `rasa train` in /rasa
+**Note**: A trained model is part of the Git repo, to retrain run `rasa train` in /rasa \
+**Note**: For support, send an email to p.rauser@outlook.com or paul_henrik.rauser@student.reutlingen-university.de
 
 ## Facts
 
